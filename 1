@@ -1,0 +1,102 @@
+public class Time {
+    private int hours;
+    private int minutes;
+
+    public Time(int hours, int minutes) {
+        this.hours = hours;
+        this.minutes = minutes;
+    }
+
+    // Геттери та сеттери для годин і хвилин
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Time time = (Time) o;
+        return hours == time.hours && minutes == time.minutes;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(hours, minutes);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%02d:%02d", hours, minutes);
+    }
+}
+
+public class Minute {
+    private int minutes;
+
+    public Minute(int minutes) {
+        this.minutes = minutes;
+    }
+
+    // Геттери та сеттери для хвилин
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Minute minute = (Minute) o;
+        return minutes == minute.minutes;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(minutes);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%02d minutes", minutes);
+    }
+}
+public class Daytime {
+    private Time currentTime;
+
+    public Daytime(Time currentTime) {
+        this.currentTime = currentTime;
+    }
+
+    // Додайте методи для розрахунку часу доби (ранок, день, вечір, ніч)
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Daytime daytime = (Daytime) o;
+        return Objects.equals(currentTime, daytime.currentTime);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(currentTime);
+    }
+
+    @Override
+    public String toString() {
+        return "Current Time: " + currentTime;
+    }
+}
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter current hour: ");
+        int hours = scanner.nextInt();
+
+        System.out.print("Enter current minute: ");
+        int minutes = scanner.nextInt();
+
+        Time currentTime = new Time(hours, minutes);
+        Daytime daytime = new Daytime(currentTime);
+
+        System.out.println(daytime);
+    }
+}
