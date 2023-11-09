@@ -1,0 +1,49 @@
+package musiclibrary;
+
+public class MusicTrack {
+    private String title;
+    private String artist;
+    private int duration;
+
+    public MusicTrack(String title, String artist, int duration) {
+        this.title = title;
+        this.artist = artist;
+        this.duration = duration;
+    }
+
+    // Геттери та сеттери для полів
+
+    // Інші методи, які можуть знадобитися, наприклад, вивід інформації про композицію
+}
+
+package musiclibrary;
+
+public class Album {
+    private String title;
+    private List<MusicTrack> tracks;
+
+    public Album(String title) {
+        this.title = title;
+        this.tracks = new ArrayList<>();
+    }
+
+    // Додавання та видалення композицій до/з альбому
+
+    // Інші методи, які можуть знадобитися
+}
+
+package musiclibrary;
+
+public class MusicLibrary {
+    private List<Album> albums;
+
+    // Конструктор та інші методи для роботи з бібліотекою
+
+    // Методи для запису на диск, перестановки та пошуку композицій
+}
+
+public class MusicApp {
+    public static void main(String[] args) {
+        // Створення об'єктів та взаємодія з користувачем через консольне меню
+    }
+}
